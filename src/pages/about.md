@@ -1,37 +1,43 @@
 ---
-layout: ../layouts/AboutLayout.astro
 title: "About"
+layout: ../layouts/AboutLayout.astro
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+![Profile Image](/images/profile.jpg)
 
-![Astro Paper](public/astropaper-og.jpg)
+# Shreya Khanduri
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+### Rare Decay Physics
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+---
 
-## Features
+## 👩🏻‍🔬 About Me
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+I am a PhD candidate at **IIT Ropar** working on rare nuclear decays. My research focuses on improving experimental sensitivity through detector development and background suppression to probe physics beyond the Standard Model.
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+If you're interested in nuclear/particle physics, detector development, or scientific collaborations, feel free to reach out!
 
-and so much more.
+---
 
-## Show your support
+## 📫 Contact & Links
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
+- 📧 [Email](mailto:shreyakhanduri187@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/shreya-khanduri-a85aa3318/)
+- [Download CV](/your-cv-link.pdf)
 
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
+---
 
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
+## 💡 What you'll find here
 
-Kyay zuu! 🙏🏼
+- Research insights and technical blog posts on rare decays and detectors
+- Project updates and science notes
+- Resources for students and collaborators
+
+---
+
+> "The important thing is not to stop questioning. Curiosity has its own reason for existence."  
+> — _Albert Einstein_
+
+---
+
+© 2025 Shreya Khanduri. All rights reserved.

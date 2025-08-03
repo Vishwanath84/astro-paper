@@ -1,121 +1,64 @@
 ---
-import { getCollection } from "astro:content";
+// No need for posts, featured, recent, etc.
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Socials from "@/components/Socials.astro";
-import LinkButton from "@/components/LinkButton.astro";
-import Card from "@/components/Card.astro";
-import Hr from "@/components/Hr.astro";
-import getSortedPosts from "@/utils/getSortedPosts";
-import IconRss from "@/assets/icons/IconRss.svg";
-import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-import { SITE } from "@/config";
-import { SOCIALS } from "@/constants";
-
-const posts = await getCollection("blog");
-
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 ---
 
 <Layout>
   <Header />
-  <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
-      </h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="inline-block"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
+  <main
+    id="main-content"
+    class="flex min-h-[80vh] flex-col items-center justify-center px-4"
+  >
+    <!-- Profile Image -->
+    <img
+      src="/images/profile.jpg"
+      alt="Profile"
+      class="mt-12 mb-6 h-40 w-40 rounded-full border-4 border-accent object-cover"
+      style="background: #fff;"
+    />
 
+    <!-- Name and Title -->
+    <h1
+      class="mt-4 mb-2 text-center text-4xl leading-tight font-extrabold sm:text-5xl"
+    >
+      Shreya Khanduri <span class="block sm:inline">| Rare Decay Physics</span>
+    </h1>
+
+    <!-- Description -->
+    <div class="mt-4 mb-6 max-w-xl text-center text-lg">
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        PhD candidate at IIT Ropar working on rare nuclear decays. <br />
+        My research focuses on improving experimental sensitivity through detector
+        development and background suppression to probe physics beyond the Standard
+        Model.
       </p>
-      <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
+    </div>
 
-    <Hr />
-
-    {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured" class="pt-12 pb-6">
-            <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
-            <ul>
-              {featuredPosts.map(data => (
-                <Card variant="h3" {...data} />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <Hr />}
-        </>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
+    <!-- Links -->
+    <div class="mt-2 mb-8 flex flex-col items-center space-y-2">
+      <a
+        href="mailto:shreyakhanduri187@gmail.com"
+        class="font-medium text-accent hover:underline"
+      >
+        Email: shreyakhanduri187@gmail.com
+      </a>
+      <a
+        href="https://www.linkedin.com/in/shreya-khanduri-a85aa3318/"
+        target="_blank"
+        class="font-medium text-accent hover:underline"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="/docs/cv.pdf"
+        target="_blank"
+        class="mt-2 font-bold text-accent hover:underline"
+      >
+        Download CV
+      </a>
     </div>
   </main>
   <Footer />
 </Layout>
-
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
-      ?.dataset?.layout;
-    if (indexLayout) {
-      sessionStorage.setItem("backUrl", "/");
-    }
-  });
-</script>
