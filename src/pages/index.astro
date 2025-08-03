@@ -2,61 +2,75 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+
+const name = "Shreya Khanduri";
+const tagline = "Rare Decay Physics";
+const email = "shreyakhanduri187@gmail.com";
+const linkedinUrl = "https://www.linkedin.com/in/shreya-khanduri-a85aa3318/";
+const cvPath = "/docs/cv.pdf";
 ---
 
 <Layout>
   <Header />
   <main
     id="main-content"
-    class="flex min-h-[80vh] flex-col items-center justify-center px-4"
+    class="mx-auto flex max-w-3xl flex-col items-center px-4 pt-12 pb-16"
   >
-    <!-- Profile Image -->
-    <img
-      src="/images/profile.jpg"
-      alt="Profile"
-      class="mt-12 mb-6 h-40 w-40 rounded-full border-4 border-accent object-cover"
-      style="background: #fff;"
-    />
+    <div class="flex w-full flex-col items-center text-center">
+      <!-- Profile Image -->
+      <img
+        src="/images/profile.jpg"
+        alt="Shreya Khanduri"
+        class="mb-4 h-32 w-32 rounded-full border-4 border-accent object-cover"
+        loading="eager"
+      />
 
-    <!-- Name and Title -->
-    <h1
-      class="mt-4 mb-2 text-center text-4xl leading-tight font-extrabold sm:text-5xl"
-    >
-      Shreya Khanduri <span class="block sm:inline">| Rare Decay Physics</span>
-    </h1>
+      <!-- Name / Title -->
+      <h1
+        class="mt-2 mb-4 text-3xl leading-snug font-extrabold break-words sm:text-4xl md:text-5xl"
+      >
+        {name}
+        <span class="block sm:inline">| {tagline}</span>
+      </h1>
 
-    <!-- Description -->
-    <div class="mt-4 mb-6 max-w-xl text-center text-lg">
-      <p>
-        PhD candidate at IIT Ropar working on rare nuclear decays. <br />
-        My research focuses on improving experimental sensitivity through detector
-        development and background suppression to probe physics beyond the Standard
-        Model.
+      <!-- Description -->
+      <p class="mt-2 max-w-prose text-base leading-relaxed sm:text-lg">
+        PhD candidate at IIT Ropar working on rare nuclear decays. My research
+        focuses on improving experimental sensitivity through detector
+        development and background suppression to probe physics beyond the
+        Standard Model.
       </p>
-    </div>
 
-    <!-- Links -->
-    <div class="mt-2 mb-8 flex flex-col items-center space-y-2">
-      <a
-        href="mailto:shreyakhanduri187@gmail.com"
-        class="font-medium text-accent hover:underline"
+      <!-- Links -->
+      <div
+        class="mt-6 flex flex-col items-center gap-4 text-center sm:flex-row"
       >
-        Email: shreyakhanduri187@gmail.com
-      </a>
-      <a
-        href="https://www.linkedin.com/in/shreya-khanduri-a85aa3318/"
-        target="_blank"
-        class="font-medium text-accent hover:underline"
-      >
-        LinkedIn
-      </a>
-      <a
-        href="/docs/cv.pdf"
-        target="_blank"
-        class="mt-2 font-bold text-accent hover:underline"
-      >
-        Download CV
-      </a>
+        <a
+          href={`mailto:${email}`}
+          class="font-medium break-all text-accent hover:underline"
+          aria-label="Email"
+        >
+          Email: {email}
+        </a>
+        <a
+          href={linkedinUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="font-medium text-accent hover:underline"
+          aria-label="LinkedIn"
+        >
+          LinkedIn
+        </a>
+        <a
+          href={cvPath}
+          target="_blank"
+          rel="noreferrer"
+          class="font-bold text-accent hover:underline"
+          aria-label="Download CV"
+        >
+          Download CV
+        </a>
+      </div>
     </div>
   </main>
   <Footer />
